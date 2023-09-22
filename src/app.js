@@ -9,6 +9,11 @@ app.use(express.urlencoded({ extended: true }));
 // Usa el router en tu aplicación
 app.use('/', HolaMundo);
 
-app.listen(8080, () => {
-    console.log('La aplicación está escuchando en http://localhost:8080');
+// Usa el puerto proporcionado en el entorno o el predeterminado a 3000
+const port = process.env.PORT || 3000;
+
+// Escucha en `port` y 0.0.0.0
+app.listen(port, "0.0.0.0", function () {
+    console.log(`La aplicación está escuchando en http://localhost:${port}`);
 });
+
